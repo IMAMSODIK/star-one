@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Mastery - Bimbel Bahasa Inggris Modern</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS untuk animasi dan warna */
+        .hero-bg {
+            background-color: #010062; /* Warna utama biru tua */
+            background-image: url('https://via.placeholder.com/1500x800/010062/FFFFFF?text=Hero+Background+Image'); /* Placeholder, ganti dengan gambar nyata */
+            background-size: cover;
+            background-position: center;
+        }
+        .text-primary-blue {
+            color: #010062;
+        }
+        .bg-primary-blue {
+            background-color: #010062;
+        }
+        .text-accent-red {
+            color: #CB0000;
+        }
+        .bg-accent-red {
+            background-color: #CB0000;
+        }
+        .text-accent-orange {
+            color: #FF8500;
+        }
+        .bg-accent-orange {
+            background-color: #FF8500;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .animate-pulse-btn {
+            animation: pulseBtn 2s infinite;
+        }
+        @keyframes pulseBtn {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .slide-in-right {
+            animation: slideInRight 1s ease-out forwards;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        @keyframes slideInRight {
+            from {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-white">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary-blue">English Mastery</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-600 hover:text-primary-blue">Tentang Kami</a>
+                <a href="#programs" class="text-gray-600 hover:text-primary-blue">Program</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-primary-blue">Testimoni</a>
+                <a href="#contact" class="px-4 py-2 bg-accent-orange text-white rounded-lg hover:bg-red-600 transition duration-300">Daftar Sekarang</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-primary-blue focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white py-2 shadow-inner">
+            <a href="#about" class="block px-6 py-2 text-gray-800 hover:bg-gray-100">Tentang Kami</a>
+            <a href="#programs" class="block px-6 py-2 text-gray-800 hover:bg-gray-100">Program</a>
+            <a href="#testimonials" class="block px-6 py-2 text-gray-800 hover:bg-gray-100">Testimoni</a>
+            <a href="#contact" class="block px-6 py-2 bg-accent-orange text-white hover:bg-red-600 transition duration-300 mt-2 mx-6 rounded-lg">Daftar Sekarang</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 md:py-32 flex items-center min-h-screen">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-up" style="animation-delay: 0.1s;">
+                Kuasi Bahasa Inggris <br class="hidden md:block"> Raih Masa Depan Cerah!
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 animate-fade-in-up" style="animation-delay: 0.3s;">
+                Bimbingan belajar modern dengan metode interaktif dan pengajar profesional.
+            </p>
+            <a href="#contact" class="inline-block px-8 py-4 bg-accent-red text-white text-lg font-semibold rounded-full hover:bg-red-700 transition duration-300 transform hover:scale-105 animate-pulse-btn" style="animation-delay: 0.5s;">
+                Gabung Sekarang!
+            </a>
+            
+        </div>
+    </section>
+    
+    <!-- Animasi di Hero Section -->
+    <!-- Anda bisa menambahkan elemen untuk animasi di sini, misalnya SVG atau gambar PNG -->
+    <!-- Contoh: Animasi ikon buku atau globe yang berputar perlahan di background atau floating elements -->
+    
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-10">
+            <div class="md:w-1/2 animate-slide-in-left">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary-blue mb-6">Tentang <span class="text-accent-orange">English Mastery</span></h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                    English Mastery hadir untuk memberikan pengalaman belajar bahasa Inggris yang berbeda. Kami percaya bahwa setiap individu memiliki potensi untuk mahir berbahasa Inggris, dan kami menyediakan lingkungan yang mendukung, menyenangkan, serta efektif.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Dengan kurikulum yang teruji dan pengajar berpengalaman, kami berkomitmen membantu Anda mencapai tujuan berbahasa Inggris, baik untuk keperluan akademis, profesional, maupun personal.
+                </p>
+            </div>
+            <div class="md:w-1/2 animate-slide-in-right">
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary-blue mb-12 animate-fade-in-up">Mengapa Memilih Kami?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    
+                    <h3 class="text-xl font-semibold text-primary-blue mb-4">Pengajar Berpengalaman</h3>
+                    <p class="text-gray-600">Tim pengajar kami adalah native speaker dan ahli di bidangnya, berdedikasi tinggi untuk kesuksesan Anda.</p>
+                </div>
+                <div class="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 animate-fade-in-up" style="animation-delay: 0.4s;">
+                    
+                    <h3 class="text-xl font-semibold text-primary-blue mb-4">Metode Interaktif</h3>
+                    <p class="text-gray-600">Belajar dengan cara yang menyenangkan, melalui diskusi, game, dan simulasi kehidupan nyata.</p>
+                </div>
+                <div class="p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 animate-fade-in-up" style="animation-delay: 0.6s;">
+                    
+                    <h3 class="text-xl font-semibold text-primary-blue mb-4">Kurikulum Terkini</h3>
+                    <p class="text-gray-600">Materi disesuaikan dengan standar internasional dan kebutuhan pasar kerja saat ini.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary-blue mb-12 animate-fade-in-up">Program <span class="text-accent-red">Pilihan Kami</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Program Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-2 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <img src="https://via.placeholder.com/400x250/CB0000/FFFFFF?text=General+English" alt="General English" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-primary-blue mb-3">General English</h3>
+                        <p class="text-gray-600 mb-4">Tingkatkan kemampuan bahasa Inggris dasar hingga menengah untuk komunikasi sehari-hari.</p>
+                        <a href="#" class="inline-block px-6 py-2 bg-primary-blue text-white rounded-lg hover:bg-blue-700 transition duration-300">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Program Card 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-2 animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <img src="https://via.placeholder.com/400x250/FF8500/FFFFFF?text=IELTS+Preparation" alt="IELTS Preparation" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-primary-blue mb-3">IELTS Preparation</h3>
+                        <p class="text-gray-600 mb-4">Persiapan intensif untuk meraih skor IELTS tinggi yang Anda impikan.</p>
+                        <a href="#" class="inline-block px-6 py-2 bg-primary-blue text-white rounded-lg hover:bg-blue-700 transition duration-300">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Program Card 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-2 animate-fade-in-up" style="animation-delay: 0.6s;">
+                    <img src="https://via.placeholder.com/400x250/010062/FFFFFF?text=Business+English" alt="Business English" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-primary-blue mb-3">Business English</h3>
+                        <p class="text-gray-600 mb-4">Kuasai bahasa Inggris untuk dunia bisnis, presentasi, dan negosiasi.</p>
+                        <a href="#" class="inline-block px-6 py-2 bg-primary-blue text-white rounded-lg hover:bg-blue-700 transition duration-300">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 md:py-24 bg-primary-blue text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 animate-fade-in-up">Apa Kata <span class="text-accent-orange">Mereka?</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Testimonial Card 1 -->
+                <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <p class="text-lg italic mb-6">"English Mastery benar-benar mengubah cara saya belajar. Pengajar sangat sabar dan metodenya menyenangkan!"</p>
+                    <div class="flex items-center justify-center">
+                        <img src="https://via.placeholder.com/60x60/CB0000/FFFFFF?text=A" alt="Avatar Student 1" class="w-12 h-12 rounded-full mr-4 border-2 border-accent-orange">
+                        <p class="font-semibold">Putri Anggraini</p>
+                    </div>
+                </div>
+                <!-- Testimonial Card 2 -->
+                <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <p class="text-lg italic mb-6">"Saya berhasil meraih skor IELTS yang saya inginkan berkat bimbingan intensif di sini. Sangat direkomendasikan!"</p>
+                    <div class="flex items-center justify-center">
+                        <img src="https://via.placeholder.com/60x60/FF8500/FFFFFF?text=B" alt="Avatar Student 2" class="w-12 h-12 rounded-full mr-4 border-2 border-accent-orange">
+                        <p class="font-semibold">Bima Sakti</p>
+                    </div>
+                </div>
+                <!-- Testimonial Card 3 -->
+                <div class="bg-white text-gray-800 p-8 rounded-lg shadow-lg animate-fade-in-up" style="animation-delay: 0.6s;">
+                    <p class="text-lg italic mb-6">"Lingkungan belajarnya sangat suportif. Saya jadi lebih percaya diri untuk berbicara bahasa Inggris."</p>
+                    <div class="flex items-center justify-center">
+                        <img src="https://via.placeholder.com/60x60/010062/FFFFFF?text=C" alt="Avatar Student 3" class="w-12 h-12 rounded-full mr-4 border-2 border-accent-orange">
+                        <p class="font-semibold">Citra Dewi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 md:py-24 bg-accent-orange text-white text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-6 animate-fade-in-up">Siap Memulai Petualangan Bahasa Inggrismu?</h2>
+            <p class="text-xl md:text-2xl mb-8 animate-fade-in-up" style="animation-delay: 0.3s;">
+                Dapatkan konsultasi gratis dan temukan program yang tepat untuk Anda!
+            </p>
+            <a href="#contact" class="inline-block px-10 py-5 bg-primary-blue text-white text-xl font-bold rounded-full hover:bg-blue-700 transition duration-300 transform hover:scale-105 animate-pulse-btn" style="animation-delay: 0.5s;">
+                Hubungi Kami Sekarang!
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary-blue text-center mb-12 animate-fade-in-up">Daftar atau Tanyakan Sesuatu</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg animate-fade-in-up" style="animation-delay: 0.2s;">
+                <form>
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nama Lengkap</label>
+                        <input type="text" id="name" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Nama Anda">
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                        <input type="email" id="email" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="email@contoh.com">
+                    </div>
+                    <div class="mb-6">
+                        <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Nomor Telepon</label>
+                        <input type="tel" id="phone" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="081234567890">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Pesan Anda</label>
+                        <textarea id="message" rows="5" class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Saya ingin bertanya tentang program..."></textarea>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <button type="submit" class="bg-accent-red hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full focus:outline-none focus:shadow-outline transition duration-300 transform hover:scale-105">
+                            Kirim Pesan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-blue text-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-xl font-bold">English Mastery</p>
+                    <p class="text-sm">Jalan Contoh No. 123, Kota ABC</p>
+                    <p class="text-sm">info@englishmastery.com | +62 812 3456 7890</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-accent-orange transition duration-300">Facebook</a>
+                    <a href="#" class="hover:text-accent-orange transition duration-300">Instagram</a>
+                    <a href="#" class="hover:text-accent-orange transition duration-300">LinkedIn</a>
+                </div>
+            </div>
+            <p class="text-sm">&copy; 2023 English Mastery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                if (window.innerWidth < 768) {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // Adjust as needed
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-active'); // Add a class to trigger animation
+                    // Remove animation class after it runs if it's a one-time animation
+                    // entry.target.classList.remove('animate-fade-in-up'); // Example
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-fade-in-up, .animate-slide-in-left, .animate-slide-in-right').forEach(el => {
+            el.classList.add('opacity-0'); // Ensure elements are initially hidden
+            observer.observe(el);
+        });
+
+        // Add a class for active animations
+        const styleSheet = document.createElement("style");
+        styleSheet.type = "text/css";
+        styleSheet.innerText = `
+            .animate-fade-in-up.animate-active { animation-name: fadeInUp; }
+            .animate-slide-in-left.animate-active { animation-name: slideInLeft; }
+            .animate-slide-in-right.animate-active { animation-name: slideInRight; }
+            .animate-pulse-btn.animate-active { animation-name: pulseBtn; }
+        `;
+        document.head.appendChild(styleSheet);
+    </script>
+</body>
+</html>
+
