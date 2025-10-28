@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\SendOtpMail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -60,62 +59,26 @@ class AuthController extends Controller
         ], 401);
     }
 
-    public function sendOtp(Request $request)
+    public function register(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|string|min:5|confirmed',
+            'wa' => 'required|string|max:15',
+            'kursus' => 'required|string|min:5',
         ]);
-
-        $otp = rand(100000, 999999);
-        $email = $request->email;
-
-        session([
-            'otp' => $otp,
-            'otp_email' => $email,
-            'otp_data' => $request->only('name', 'password')
-        ]);
-
-        Mail::to($request->email)->send(new SendOtpMail($otp, $request->name));
-
-        return response()->json([
-            'status' => 'otp_sent',
-            'message' => 'OTP sent to your email.'
-        ]);
-    }
-
-    public function verifyOtp(Request $request)
-    {
-        $request->validate([
-            'otp' => 'required|numeric',
-        ]);
-
-        if ($request->otp != session('otp')) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Invalid OTP.'
-            ], 422);
-        }
-
-        $userData = session('otp_data');
-        $email = session('otp_email');
 
         $user = User::create([
-            'name' => $userData['name'],
-            'email' => $email,
-            'password' => Hash::make($userData['password']),
+            'name' => $request->name,
+            'wa' => $request->wa,
+            'kursus' => $request->kursus,
+            'email' => Str::uuid() . '@starone.com',
+            'password' => Hash::make('123'),
             'role' => 'student'
         ]);
 
-        Auth::login($user);
-
-        session()->forget(['otp', 'otp_email', 'otp_data']);
-
         return response()->json([
             'status' => 'success',
-            'message' => 'Registration successful!',
-            'redirect' => '/dashboard'
+            'message' => 'Proses pendaftaran berhasil!',
         ]);
     }
 

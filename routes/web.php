@@ -20,12 +20,11 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['guest'])->group(function () {
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-    Route::post('/login', [AuthController::class, 'loginCheck']);
+    Route::get('/register', [AuthController::class, 'login'])->name('login');
+    Route::post('/register', [AuthController::class, 'loginCheck']);
 
-    Route::post('/register/send-otp', [AuthController::class, 'sendOtp']);
-    Route::post('/register/verify-otp', [AuthController::class, 'verifyOtp']);
     Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/register/verify-otp', [AuthController::class, 'verifyOtp']);
 
     Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotForm'])->name('password.request');
     Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('password.email');

@@ -61,7 +61,7 @@
                     <img src="{{ asset('own_assets/logo/logo.png') }}" alt="">
                 </div>
             </div>
-            <h2>Unlock Your English Potential</h2>
+            <h2>Unlock Your Potential</h2>
             <p>"Take smart notes that help you remember better. Track your progress and see your improvement!"</p>
             <div style="margin-top: 20px; font-size: 14px; opacity: 0.8;">
                 <i class="fas fa-graduation-cap" style="margin-right: 5px;"></i>
@@ -79,7 +79,7 @@
 
             <!-- Form Register -->
             <div id="register-form" class="form active">
-                <h2 class="title">Start Your English Journey</h2>
+                <h2 class="title">Start Your Bright Journey</h2>
 
                 <!-- Error message container -->
                 <div class="alert alert-danger d-none" id="register-error">
@@ -91,24 +91,30 @@
                 <!-- Success message will be inserted here dynamically -->
 
                 <div class="input-group">
-                    <label for="register-name"><i class="fas fa-user me-2"></i> Full Name</label>
-                    <input type="text" id="register-name" placeholder="Your full name">
+                    <label for="register-name"><i class="fas fa-user me-2"></i> Nama Lengkap</label>
+                    <input type="text" id="register-name" placeholder="Nama lengkap kamu">
                 </div>
 
                 <div class="input-group">
-                    <label for="register-email"><i class="fas fa-at me-2"></i> Email</label>
-                    <input type="email" id="register-email" placeholder="Enter your email">
-                    {{-- <small class="form-text text-muted">Letters, numbers, and underscores only</small> --}}
+                    <label for="register-wa"><i class="fas fa-user me-2"></i> No. Whatsapp</label>
+                    <input type="text" id="register-wa" placeholder="No. Whatsapp kamu">
                 </div>
 
                 <div class="input-group">
-                    <label for="register-password"><i class="fas fa-lock me-2"></i> Create Password</label>
-                    <input type="password" id="register-password" placeholder="Minimum 5 characters">
-                </div>
-
-                <div class="input-group">
-                    <label for="confirm-register-password"><i class="fas fa-lock me-2"></i> Confirm Password</label>
-                    <input type="password" id="confirm-register-password" placeholder="Re-type your password">
+                    <label for="register-kursus"><i class="fas fa-user me-2"></i> Pilih Kursus </label>
+                    <select name="" id="register-kursus">
+                        <option value="English Regular">English Regular</option>
+                        <option value="Conversation Class">Conversation Class</option>
+                        <option value="TOEFL Preparation">TOEFL Preparation</option>
+                        <option value="IELTS Preparation">IELTS Preparation</option>
+                        <option value="Legal English">Legal English</option>
+                        <option value="Mandarin Class">Mandarin Class</option>
+                        <option value="Microsoft Office">Microsoft Office</option>
+                        <option value="Fundamental Programming">Fundamental Programming</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Mobile Development">Mobile Development</option>
+                        <option value="Design Grafis">Design Grafis</option>
+                    </select>
                 </div>
 
                 <button class="btn btn-primary mt-3" id="register">
@@ -117,28 +123,6 @@
             </div>
         </div>
     </div>
-
-    <div id="otpModal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <span class="close-btn" id="close-otp-modal">&times;</span>
-
-            <h4>Enter OTP</h4>
-            <p>Please check your email and enter the 6-digit code sent to you.</p>
-
-            <div id="otp-inputs" class="d-flex justify-content-center gap-2">
-                <input type="text" maxlength="1" class="otp-digit form-control text-center" />
-                <input type="text" maxlength="1" class="otp-digit form-control text-center" />
-                <input type="text" maxlength="1" class="otp-digit form-control text-center" />
-                <input type="text" maxlength="1" class="otp-digit form-control text-center" />
-                <input type="text" maxlength="1" class="otp-digit form-control text-center" />
-                <input type="text" maxlength="1" class="otp-digit form-control text-center" />
-            </div>
-
-            <div id="otp-error" class="text-danger mt-2" style="display:none;"></div>
-        </div>
-    </div>
-
-
 
     <script src="{{ asset('auth_assets/scripts/script.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
@@ -261,33 +245,24 @@
                 hideRegisterError();
 
                 const name = $('#register-name').val();
-                const email = $('#register-email').val();
-                const password = $('#register-password').val();
-                const confirmPassword = $('#confirm-register-password').val();
-
-                if (password !== confirmPassword) {
-                    showRegisterError('Passwords do not match', {
-                        password: ['Passwords do not match'],
-                        password_confirmation: ['Confirmation passwords do not match']
-                    });
-                    return;
-                }
+                const wa = $('#register-wa').val();
+                const kursus = $('#register-kursus').val();
 
                 $.ajax({
-                    url: '/register/send-otp',
+                    url: '/register',
                     type: 'POST',
                     data: {
                         name: name,
-                        email: email,
-                        password: password,
-                        password_confirmation: confirmPassword,
+                        wa: wa,
+                        kursus: kursus,
                         _token: $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(response) {
                         $("#register").prop('disabled', false);
                         $('body').css('cursor', 'default');
-                        if (response.status === 'otp_sent') {
-                            $('#otpModal').fadeIn();
+                        if (response.status === 'success') {
+                            showRegisterSuccess(response.message);
+                            location.reload()
                         } else {
                             showRegisterError(response.message);
                         }
@@ -335,81 +310,6 @@
                 }
             });
         });
-    </script>
-
-    <script>
-        function showOtpModal() {
-            $('#otpModal').fadeIn();
-
-            $('#otp-inputs input.otp-digit').val('');
-            $('#otp-error').hide().text('');
-
-            $('#otp-inputs input.otp-digit').first().focus();
-        }
-
-
-        function hideOtpModal() {
-            $('#otpModal').fadeOut();
-        }
-
-        $('#close-otp-modal').click(function() {
-            hideOtpModal();
-        });
-
-        $('#otp-inputs input.otp-digit').on('input', function() {
-            const $this = $(this);
-            const value = $this.val();
-
-            if (value.length === 1) {
-                $this.next('.otp-digit').focus();
-            }
-
-            const otp = $('#otp-inputs input.otp-digit')
-                .map(function() {
-                    return $(this).val();
-                })
-                .get()
-                .join('');
-
-            if (otp.length === 6) {
-                verifyOtp(otp);
-            }
-        });
-
-        $('#otp-inputs input.otp-digit').on('keydown', function(e) {
-            if (e.key === 'Backspace' && $(this).val() === '') {
-                $(this).prev('.otp-digit').focus();
-            }
-        });
-
-        function verifyOtp(otp) {
-            $.ajax({
-                url: '/register/verify-otp',
-                method: 'POST',
-                data: {
-                    otp: otp,
-                    _token: $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(response) {
-                    $("#register").prop('disabled', false);
-                    $('body').css('cursor', 'default');
-                    if (response.status === 'success') {
-                        hideOtpModal();
-                        setTimeout(() => {
-                            window.location.href = response.redirect;
-                        }, 1500);
-                    } else {
-                        $('#otp-error').text(response.message).show();
-                    }
-                },
-                error: function(xhr) {
-                    $("#register").prop('disabled', false);
-                    $('body').css('cursor', 'default');
-                    const response = xhr.responseJSON;
-                    $('#otp-error').text(response.message || 'Invalid OTP.').show();
-                }
-            });
-        }
     </script>
 </body>
 

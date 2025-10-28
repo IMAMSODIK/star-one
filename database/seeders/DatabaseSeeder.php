@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::create([
+            'id' => Str::uuid(),
             'name' => 'Admin',
             'password' => bcrypt('12345'),
             'email' => 'admin@gmail.com',
@@ -23,6 +25,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
+            'id' => Str::uuid(),
             'name' => 'Michael Johnson',
             'password' => bcrypt('12345'),
             'role' => 'student',
@@ -31,6 +34,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
+            'id' => Str::uuid(),
             'name' => 'Fermin Lopez',
             'password' => bcrypt('12345'),
             'role' => 'student',
@@ -39,6 +43,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
+            'id' => Str::uuid(),
             'name' => 'Lamine Yamala',
             'password' => bcrypt('12345'),
             'role' => 'student',

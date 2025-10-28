@@ -16,7 +16,51 @@
     <link href="{{ asset('landing_assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('landing_assets/css/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('landing_assets/css/templatemo-topic-listing.css') }}" rel="stylesheet">
+    <style>
+        #section_6 {
+            background: linear-gradient(135deg, #f9fbfd 0%, #eef3f8 100%);
+            padding: 80px 0;
+        }
 
+        .object-fit-cover {
+            object-fit: cover;
+        }
+
+        /* Efek hover pada card */
+        .promo-card {
+            transition: all 0.4s ease;
+            transform: translateY(0);
+        }
+
+        .promo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Efek hover pada gambar (zoom halus) */
+        .promo-img-wrapper {
+            overflow: hidden;
+        }
+
+        .promo-img {
+            transition: transform 0.6s ease;
+        }
+
+        .promo-card:hover .promo-img {
+            transform: scale(1.08);
+        }
+
+        /* Tombol hover efek */
+        .promo-btn {
+            transition: all 0.3s ease;
+        }
+
+        .promo-btn:hover {
+            background-color: #0d6efd;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.4);
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
@@ -31,7 +75,7 @@
                 </a>
 
                 <div class="d-lg-none ms-auto me-4">
-                    <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                    <a href="#top" class="navbar-icon bi-house smoothscroll"></a>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -50,7 +94,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink"
+                            <a class="nav-link dropdown-toggle" href="#section_3" id="navbarLightDropdownMenuLink"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Our Courses
                             </a>
@@ -63,24 +107,24 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_3">Our Event</a>
+                            <a class="nav-link click-scroll" href="#section_4">Our Event</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_4">Promo</a>
+                            <a class="nav-link click-scroll" href="#section_5">Promo</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_4">FAQs</a>
+                            <a class="nav-link click-scroll" href="#section_6">FAQs</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_5">Contact</a>
+                            <a class="nav-link click-scroll" href="#section_7">Contact</a>
                         </li>
                     </ul>
 
                     <div class="d-none d-lg-block">
-                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                        <a href="#top" class="navbar-icon bi-house smoothscroll"></a>
                     </div>
                 </div>
             </div>
@@ -95,7 +139,7 @@
                         <h1 class="text-white">Star One Education Center</h1>
                         <h6 class="text-white mb-4">Tempat Bimbel Terbaik untuk Mengembangkan Potensi Belajarmu</h6>
 
-                        <a href="#section_courses" class="btn custom-btn btn-lg mt-3 smoothscroll">
+                        <a href="/register" class="btn custom-btn btn-lg mt-3 smoothscroll">
                             Daftar Sekarang
                         </a>
                     </div>
@@ -106,7 +150,7 @@
 
 
 
-        <section class="featured-section">
+        <section class="featured-section" id="section_2">
             <div class="container">
                 <div class="row justify-content-center">
 
@@ -189,7 +233,7 @@
         </section>
 
 
-        <section class="explore-section section-padding" id="section_2">
+        <section class="explore-section section-padding" id="section_3">
             <div class="container">
                 <div class="row">
 
@@ -252,11 +296,11 @@
 
                                             <!-- Tombol di bawah gambar -->
                                             <div class="d-flex justify-content-between mt-auto">
-                                                <a href="https://wa.me/6281234567890?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20English%20Regular%20Class"
+                                                <a href="https://wa.me/085173301768?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20English%20Regular%20Class"
                                                     target="_blank" class="btn custom-btn btn-lg mt-3 smoothscroll">
                                                     <i class="bi bi-whatsapp"></i> Konsultasi
                                                 </a>
-                                                <a href="register.html" class="btn custom-btn mt-3 custom-border-btn">
+                                                <a href="/register" class="btn custom-btn mt-3 custom-border-btn">
                                                     Daftar Sekarang
                                                 </a>
                                             </div>
@@ -281,11 +325,11 @@
                                             </a>
 
                                             <div class="d-flex justify-content-between mt-auto">
-                                                <a href="https://wa.me/6281234567890?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20Conversation%20Class"
+                                                <a href="https://wa.me/085173301768?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20Conversation%20Class"
                                                     target="_blank" class="btn custom-btn btn-lg mt-3 smoothscroll">
                                                     <i class="bi bi-whatsapp"></i> Konsultasi
                                                 </a>
-                                                <a href="register.html" class="btn custom-btn mt-3 custom-border-btn">
+                                                <a href="/register" class="btn custom-btn mt-3 custom-border-btn">
                                                     Daftar Sekarang
                                                 </a>
                                             </div>
@@ -311,11 +355,11 @@
                                             </a>
 
                                             <div class="d-flex justify-content-between mt-auto">
-                                                <a href="https://wa.me/6281234567890?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20TOEFL%20Preparation%20Class"
+                                                <a href="https://wa.me/085173301768?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20TOEFL%20Preparation%20Class"
                                                     target="_blank" class="btn custom-btn btn-lg mt-3 smoothscroll">
                                                     <i class="bi bi-whatsapp"></i> Konsultasi
                                                 </a>
-                                                <a href="register.html" class="btn custom-btn mt-3 custom-border-btn">
+                                                <a href="/register" class="btn custom-btn mt-3 custom-border-btn">
                                                     Daftar Sekarang
                                                 </a>
                                             </div>
@@ -342,11 +386,11 @@
                                             </a>
 
                                             <div class="d-flex justify-content-between mt-auto">
-                                                <a href="https://wa.me/6281234567890?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20IELTS%20Preparation%20Class"
+                                                <a href="https://wa.me/085173301768?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20IELTS%20Preparation%20Class"
                                                     target="_blank" class="btn custom-btn btn-lg mt-3 smoothscroll">
                                                     <i class="bi bi-whatsapp"></i> Konsultasi
                                                 </a>
-                                                <a href="register.html" class="btn custom-btn mt-3 custom-border-btn">
+                                                <a href="/register" class="btn custom-btn mt-3 custom-border-btn">
                                                     Daftar Sekarang
                                                 </a>
                                             </div>
@@ -372,11 +416,11 @@
                                             </a>
 
                                             <div class="d-flex justify-content-between mt-auto">
-                                                <a href="https://wa.me/6281234567890?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20Legal%20English%20Class"
+                                                <a href="https://wa.me/085173301768?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20Legal%20English%20Class"
                                                     target="_blank" class="btn custom-btn btn-lg mt-3 smoothscroll">
                                                     <i class="bi bi-whatsapp"></i> Konsultasi
                                                 </a>
-                                                <a href="register.html" class="btn custom-btn mt-3 custom-border-btn">
+                                                <a href="/register" class="btn custom-btn mt-3 custom-border-btn">
                                                     Daftar Sekarang
                                                 </a>
                                             </div>
@@ -386,64 +430,36 @@
                                 </div>
                             </div>
 
-
                             <div class="tab-pane fade" id="mandarin-tab-pane" role="tabpanel"
                                 aria-labelledby="mandarin-tab" tabindex="0">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                        <div class="custom-block bg-white shadow-lg">
-                                            <a href="topics-detail.html">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="mb-2">Advertising</h5>
-
-                                                        <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                    </div>
-
-                                                    <span class="badge bg-advertising rounded-pill ms-auto">30</span>
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-4 col-md-6 col-12 mb-4 d-flex">
+                                        <div
+                                            class="custom-block bg-white shadow-lg w-100 d-flex flex-column justify-content-between">
+                                            <a href="topics-detail.html" class="d-flex flex-column h-100">
+                                                <div class="flex-grow-1">
+                                                    <h5 class="mb-2">Mandarin Class</h5>
+                                                    <p class="mb-0" style="text-align: justify;">
+                                                        Belajar Mandarin dengan cara seru dan santai! Mulai dari
+                                                        percakapan dasar sampai bisa ngobrol lancar di situasi
+                                                        sehari-hari
+                                                    </p>
                                                 </div>
 
-                                                <img src="{{ asset('landing_assets/images/topics/undraw_online_ad_re_ol62.png') }}"
-                                                    class="custom-block-image img-fluid" alt="">
+                                                <img src="{{ asset('own_assets/images/mc.png') }}"
+                                                    class="custom-block-image img-fluid mt-3 mb-3" alt="">
                                             </a>
-                                        </div>
-                                    </div>
 
-                                    <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                        <div class="custom-block bg-white shadow-lg">
-                                            <a href="topics-detail.html">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="mb-2">Video Content</h5>
-
-                                                        <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                    </div>
-
-                                                    <span class="badge bg-advertising rounded-pill ms-auto">65</span>
-                                                </div>
-
-                                                <img src="{{ asset('landing_assets/images/topics/undraw_Group_video_re_btu7.png') }}"
-                                                    class="custom-block-image img-fluid" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4 col-md-6 col-12">
-                                        <div class="custom-block bg-white shadow-lg">
-                                            <a href="topics-detail.html">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="mb-2">Viral Tweet</h5>
-
-                                                        <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                    </div>
-
-                                                    <span class="badge bg-advertising rounded-pill ms-auto">50</span>
-                                                </div>
-
-                                                <img src="{{ asset('landing_assets/images/topics/undraw_viral_tweet_gndb.png') }}"
-                                                    class="custom-block-image img-fluid" alt="">
-                                            </a>
+                                            <!-- Tombol di bawah gambar -->
+                                            <div class="d-flex justify-content-between mt-auto">
+                                                <a href="https://wa.me/085173301768?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20English%20Regular%20Class"
+                                                    target="_blank" class="btn custom-btn btn-lg mt-3 smoothscroll">
+                                                    <i class="bi bi-whatsapp"></i> Konsultasi
+                                                </a>
+                                                <a href="/register" class="btn custom-btn mt-3 custom-border-btn">
+                                                    Daftar Sekarang
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -451,70 +467,92 @@
 
                             <div class="tab-pane fade" id="computer-tab-pane" role="tabpanel"
                                 aria-labelledby="computer-tab" tabindex="0">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-0">
-                                        <div class="custom-block bg-white shadow-lg">
-                                            <a href="topics-detail.html">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <h5 class="mb-2">Investment</h5>
-
-                                                        <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                    </div>
-
-                                                    <span class="badge bg-finance rounded-pill ms-auto">30</span>
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-4 col-md-6 col-12 mb-4 d-flex">
+                                        <div
+                                            class="custom-block bg-white shadow-lg w-100 d-flex flex-column justify-content-between">
+                                            <a href="topics-detail.html" class="d-flex flex-column h-100">
+                                                <div class="flex-grow-1">
+                                                    <h5 class="mb-2">Office Class</h5>
+                                                    <p class="mb-0" style="text-align: justify;">
+                                                        Belajar Microsoft Word, Excel, dan PowerPoint dengan cara
+                                                        praktis dan fun! Cocok buat kamu yang mau jago kerja kantor,
+                                                        ngatur data, dan bikin presentasi keren tanpa ribet!
+                                                    </p>
                                                 </div>
 
-                                                <img src="{{ asset('landing_assets/images/topics/undraw_Finance_re_gnv2.png') }}"
-                                                    class="custom-block-image img-fluid" alt="">
+                                                <img src="{{ asset('own_assets/images/oc.png') }}"
+                                                    class="custom-block-image img-fluid mt-3 mb-3" alt="">
                                             </a>
+
+                                            <!-- Tombol di bawah gambar -->
+                                            <div class="d-flex justify-content-between mt-auto">
+                                                <a href="https://wa.me/085173301768?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20English%20Regular%20Class"
+                                                    target="_blank" class="btn custom-btn btn-lg mt-3 smoothscroll">
+                                                    <i class="bi bi-whatsapp"></i> Konsultasi
+                                                </a>
+                                                <a href="/register" class="btn custom-btn mt-3 custom-border-btn">
+                                                    Daftar Sekarang
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="custom-block custom-block-overlay">
-                                            <div class="d-flex flex-column h-100">
-                                                <img src="{{ asset('landing_assets/images/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room.jpg') }}"
-                                                    class="custom-block-image img-fluid" alt="">
-
-                                                <div class="custom-block-overlay-text d-flex">
-                                                    <div>
-                                                        <h5 class="text-white mb-2">Finance</h5>
-
-                                                        <p class="text-white">Lorem ipsum dolor, sit amet consectetur
-                                                            adipisicing elit. Sint animi necessitatibus aperiam
-                                                            repudiandae nam omnis</p>
-
-                                                        <a href="topics-detail.html"
-                                                            class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
-                                                    </div>
-
-                                                    <span class="badge bg-finance rounded-pill ms-auto">25</span>
+                                    <div class="col-lg-4 col-md-6 col-12 mb-4 d-flex">
+                                        <div
+                                            class="custom-block bg-white shadow-lg w-100 d-flex flex-column justify-content-between">
+                                            <a href="topics-detail.html" class="d-flex flex-column h-100">
+                                                <div class="flex-grow-1">
+                                                    <h5 class="mb-2">Programming Class</h5>
+                                                    <p class="mb-0" style="text-align: justify;">
+                                                        Belajar ngoding dari nol sampai bisa bikin project sendiri! Gaya
+                                                        belajarnya santai, step-by-step, dan dijamin nggak bikin pusing
+                                                    </p>
                                                 </div>
 
-                                                <div class="social-share d-flex">
-                                                    <p class="text-white me-4">Share:</p>
+                                                <img src="{{ asset('own_assets/images/pc.png') }}"
+                                                    class="custom-block-image img-fluid mt-3 mb-3" alt="">
+                                            </a>
 
-                                                    <ul class="social-icon">
-                                                        <li class="social-icon-item">
-                                                            <a href="#" class="social-icon-link bi-twitter"></a>
-                                                        </li>
+                                            <!-- Tombol di bawah gambar -->
+                                            <div class="d-flex justify-content-between mt-auto">
+                                                <a href="https://wa.me/085173301768?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20English%20Regular%20Class"
+                                                    target="_blank" class="btn custom-btn btn-lg mt-3 smoothscroll">
+                                                    <i class="bi bi-whatsapp"></i> Konsultasi
+                                                </a>
+                                                <a href="/register" class="btn custom-btn mt-3 custom-border-btn">
+                                                    Daftar Sekarang
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                                        <li class="social-icon-item">
-                                                            <a href="#"
-                                                                class="social-icon-link bi-facebook"></a>
-                                                        </li>
-
-                                                        <li class="social-icon-item">
-                                                            <a href="#"
-                                                                class="social-icon-link bi-pinterest"></a>
-                                                        </li>
-                                                    </ul>
-
-                                                    <a href="#" class="custom-icon bi-bookmark ms-auto"></a>
+                                    <div class="col-lg-4 col-md-6 col-12 mb-4 d-flex">
+                                        <div
+                                            class="custom-block bg-white shadow-lg w-100 d-flex flex-column justify-content-between">
+                                            <a href="topics-detail.html" class="d-flex flex-column h-100">
+                                                <div class="flex-grow-1">
+                                                    <h5 class="mb-2">Graphic Design</h5>
+                                                    <p class="mb-0" style="text-align: justify;">
+                                                        Belajar desain grafis dari dasar sampai bisa bikin karya keren
+                                                        sendiri! Seru, kreatif, dan cocok buat kamu yang pengin jadi
+                                                        desainer masa kini tanpa ribet!
+                                                    </p>
                                                 </div>
 
-                                                <div class="section-overlay"></div>
+                                                <img src="{{ asset('own_assets/images/gdc.png') }}"
+                                                    class="custom-block-image img-fluid mt-3 mb-3" alt="">
+                                            </a>
+
+                                            <!-- Tombol di bawah gambar -->
+                                            <div class="d-flex justify-content-between mt-auto">
+                                                <a href="https://wa.me/085173301768?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20English%20Regular%20Class"
+                                                    target="_blank" class="btn custom-btn btn-lg mt-3 smoothscroll">
+                                                    <i class="bi bi-whatsapp"></i> Konsultasi
+                                                </a>
+                                                <a href="/register" class="btn custom-btn mt-3 custom-border-btn">
+                                                    Daftar Sekarang
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -527,76 +565,89 @@
         </section>
 
 
-        <section class="timeline-section section-padding" id="section_3">
+        <section class="timeline-section section-padding" id="section_4">
             <div class="section-overlay"></div>
 
             <div class="container">
                 <div class="row">
 
-                    <div class="col-12 text-center">
-                        <h2 class="text-white mb-4">How does it work?</h1>
+                    <div class="col-lg-12 col-12 text-center">
+                        <h3 class="mb-4 text-white">Our Events</h3>
                     </div>
 
-                    <div class="col-lg-10 col-12 mx-auto">
-                        <div class="timeline-container">
-                            <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
-                                <div class="list-progress">
-                                    <div class="inner"></div>
+                    <div class="col-lg-8 col-12 mt-3 mx-auto">
+                        <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+                            <div class="d-flex position-relative">
+                                <!-- Gambar -->
+                                <div class="position-relative" style="cursor: pointer;" data-bs-toggle="modal"
+                                    data-bs-target="#videoModal">
+                                    <img src="{{ asset('own_assets/videos/thumbnail1.png') }}"
+                                        class="custom-block-image img-fluid" alt="">
+
+                                    <!-- Tombol Play di Tengah -->
+                                    <div class="position-absolute top-50 start-50 translate-middle bg-light rounded-circle shadow"
+                                        style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; opacity: 0.9;">
+                                        <i class="bi bi-play-fill fs-2 text-primary"></i>
+                                    </div>
                                 </div>
 
-                                <li>
-                                    <h4 class="text-white mb-3">Search your favourite topic</h4>
-
-                                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Reiciendis, cumque magnam? Sequi, cupiditate quibusdam alias illum sed esse ad
-                                        dignissimos libero sunt, quisquam numquam aliquam? Voluptas, accusamus omnis?
-                                    </p>
-
-                                    <div class="icon-holder">
-                                        <i class="bi-search"></i>
+                                <div class="custom-block-topics-listing-info d-flex">
+                                    <div>
+                                        <h6 class="mb-2">Sosialisasi di SD Panca Budi Medan</h6>
+                                        <p class="mb-0">Tim bimbingan belajar bahasa Inggris kami mengadakan event
+                                            sosialisasi di SD Panca Budi Medan, bertujuan...</p>
+                                        <a href="#"
+                                            class="btn custom-btn mt-3 mt-lg-4">Selengkapnya</a>
                                     </div>
-                                </li>
-
-                                <li>
-                                    <h4 class="text-white mb-3">Bookmark &amp; Keep it for yourself</h4>
-
-                                    <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                        Sint animi necessitatibus aperiam repudiandae nam omnis est vel quo, nihil
-                                        repellat quia velit error modi earum similique odit labore. Doloremque,
-                                        repudiandae?</p>
-
-                                    <div class="icon-holder">
-                                        <i class="bi-bookmark"></i>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <h4 class="text-white mb-3">Read &amp; Enjoy</h4>
-
-                                    <p class="text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                        Animi vero quisquam, rem assumenda similique voluptas distinctio, iste est hic
-                                        eveniet debitis ut ducimus beatae id? Quam culpa deleniti officiis autem?</p>
-
-                                    <div class="icon-holder">
-                                        <i class="bi-book"></i>
-                                    </div>
-                                </li>
-                            </ul>
+                                    <span class="badge bg-design rounded-pill ms-auto">✅️</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="col-12 text-center mt-5">
-                        <p class="text-white">
-                            Want to learn more?
-                            <a href="#" class="btn custom-btn custom-border-btn ms-3">Check out Youtube</a>
-                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <section class="contact-section section-padding section-bg" id="section_5">
+            <div class="container">
+                <div class="row justify-content-center">
 
-        <section class="faq-section section-padding" id="section_4">
+                    <div class="col-lg-12 col-12 text-center mb-5">
+                        <h2 class="fw-bold mb-3">✨ Our Promo This Month ✨</h2>
+                        <p class="text-muted">Nikmati penawaran spesial dari Bimbel Bahasa Inggris kami hanya di bulan
+                            ini!</p>
+                    </div>
+
+                    <div class="col-lg-8 col-md-10">
+                        <div class="promo-card card shadow-lg border-0 rounded-4 overflow-hidden">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-md-6 promo-img-wrapper">
+                                    <img src="{{ asset('own_assets/images/promo.png') }}"
+                                        class="promo-img img-fluid w-100 h-100 object-fit-cover"
+                                        alt="Promo English Class">
+                                </div>
+                                <div class="col-md-6 bg-white p-4 p-lg-5">
+                                    <h4 class="fw-bold mb-3 text-primary">Diskon 30% Kelas Bahasa Inggris!</h4>
+                                    <p class="text-secondary mb-4">
+                                        Daftarkan dirimu di bulan ini dan dapatkan potongan harga 30% untuk semua
+                                        program kursus bahasa Inggris.
+                                        Jadikan pengalaman belajar lebih menyenangkan dengan tutor profesional dan
+                                        metode interaktif!
+                                    </p>
+                                    <a href="/register"
+                                        class="btn custom-btn mt-3 mt-lg-4">
+                                        Daftar Sekarang
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section section-padding" id="section_6">
             <div class="container">
                 <div class="row">
 
@@ -618,16 +669,15 @@
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true"
                                         aria-controls="collapseOne">
-                                        What is Topic Listing?
+                                        Apa itu Star One Education Center?
                                     </button>
                                 </h2>
 
                                 <div id="collapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        Topic Listing is free Bootstrap 5 CSS template. <strong>You are not allowed to
-                                            redistribute this template</strong> on any other template collection website
-                                        without our permission. Please contact TemplateMo for more detail. Thank you.
+                                        Star One Education Center adalah lembaga kursus yang fokus membantu siswa dari berbagai jenjang untuk menguasai <strong>bahasa Inggris</strong>,
+                                        <strong>bahasa Mandarin</strong> dan juga <strong>Komputer</strong> melalui metode belajar interaktif dan menyenangkan.
                                     </div>
                                 </div>
                             </div>
@@ -637,15 +687,14 @@
                                     <button class="accordion-button collapsed" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
                                         aria-controls="collapseTwo">
-                                        How to find a topic?
+                                        Siapa saja yang bisa ikut program ini?
                                     </button>
                                 </h2>
 
                                 <div id="collapseTwo" class="accordion-collapse collapse"
                                     aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        You can search on Google with <strong>keywords</strong> such as templatemo
-                                        portfolio, templatemo one-page layouts, photography, digital marketing, etc.
+                                        Program kami terbuka untuk <strong>siswa SD, SMP, SMA, mahasiswa, hingga umum</strong> yang ingin meningkatkan kemampuan bahasa Inggris dan Mandarin serta skill Komputer juga.
                                     </div>
                                 </div>
                             </div>
@@ -655,16 +704,65 @@
                                     <button class="accordion-button collapsed" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#collapseThree"
                                         aria-expanded="false" aria-controls="collapseThree">
-                                        Does it need to paid?
+                                        Apakah tersedia kelas online dan offline?
                                     </button>
                                 </h2>
 
                                 <div id="collapseThree" class="accordion-collapse collapse"
                                     aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        You can modify any of this with custom CSS or overriding our default variables.
-                                        It's also worth noting that just about any HTML can go within the
-                                        <code>.accordion-body</code>, though the transition does limit overflow.
+                                        Ya! Kami menyediakan dua pilihan — <strong>kelas offline</strong> di tempat belajar kami dan <strong>kelas online</strong> interaktif melalui platform video conference.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                        aria-expanded="false" aria-controls="collapseThree">
+                                        Berapa biaya kursusnya?
+                                    </button>
+                                </h2>
+
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Biaya kursus bervariasi tergantung tingkat dan durasi program. Kamu bisa menghubungi kami untuk mendapatkan rincian harga dan promo terbaru.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                        aria-expanded="false" aria-controls="collapseThree">
+                                        Bagaimana cara mendaftar?
+                                    </button>
+                                </h2>
+
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Cukup klik tombol <strong>Daftar Sekarang<strong> di halaman utama atau hubungi kami melalui WhatsApp untuk pendaftaran dan konsultasi program.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                        aria-expanded="false" aria-controls="collapseThree">
+                                        Apakah peserta mendapat sertifikat?
+                                    </button>
+                                </h2>
+
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        Tentu, setiap peserta yang menyelesaikan program akan mendapatkan <strong>sertifikat kelulusan resmi</strong> dari Bimbel kami.
                                     </div>
                                 </div>
                             </div>
@@ -675,8 +773,7 @@
             </div>
         </section>
 
-
-        <section class="contact-section section-padding section-bg" id="section_5">
+        <section class="contact-section section-padding section-bg" id="section_7">
             <div class="container">
                 <div class="row">
 
@@ -684,59 +781,72 @@
                         <h2 class="mb-5">Get in touch</h2>
                     </div>
 
-                    <div class="col-lg-5 col-12 mb-4 mb-lg-0">
-                        <iframe class="google-map"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2595.065641062665!2d-122.4230416990949!3d37.80335401520422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858127459fabad%3A0x808ba520e5e9edb7!2sFrancisco%20Park!5e1!3m2!1sen!2sth!4v1684340239744!5m2!1sen!2sth"
-                            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="row">
+                        <div class="col-lg-6 col-12 mb-4 mb-lg-0">
+                            <iframe class="google-map"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63713.690873785206!2d98.5409071486328!3d3.563137700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30312f9163002895%3A0x412d3046351f140c!2sSTAR-ONE%20Education%20Center%20Medan%20Selayang!5e0!3m2!1sid!2sid!4v1761673729217!5m2!1sid!2sid"
+                                width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-12 mb-3 mb-lg- mb-md-0 ms-auto">
+                            <h5 class="mb-3">STAR-ONE Education Center Medan Selayang</h5>
+
+                            <p>Jl. Bunga Asoka No.11C, Asam Kumbang, Kec. Medan Selayang, Kota Medan, Sumatera Utara</p>
+
+                            <hr>
+
+                            <p class="d-flex align-items-center mb-1">
+                                <span class="me-2">Phone</span>
+
+                                <a href="https://wa.me/081263783942?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20Star%20One%20Education%20Center" class="site-footer-link">
+                                    0812-6378-3942
+                                </a>
+                            </p>
+
+                            <p class="d-flex align-items-center">
+                                <span class="me-2">Email</span>
+
+                                <a href="mailto:info@company.com" class="site-footer-link">
+                                    info@staroneeducation.com
+                                </a>
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 col-12 mb-3 mb-lg- mb-md-0 ms-auto">
-                        <h4 class="mb-3">Head office</h4>
+                    <hr class="mt-2">
 
-                        <p>Bay St &amp;, Larkin St, San Francisco, CA 94109, United States</p>
+                    <div class="row mt-2">
+                        <div class="col-lg-6 col-12 mb-4 mb-lg-0">
+                            <iframe class="google-map"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63713.690873785206!2d98.5409071486328!3d3.563137700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30312e3bad1a97d3%3A0xe99eaab10e6fd69e!2sSTAR-ONE%20Education%20Center%20Medan%20Helvetia!5e0!3m2!1sid!2sid!4v1761673822211!5m2!1sid!2sid"
+                                width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
 
-                        <hr>
+                        <div class="col-lg-6 col-md-6 col-12 mb-3 mb-lg- mb-md-0 ms-auto">
+                            <h5 class="mb-3">STAR-ONE Education Center Medan Helvetia</h5>
 
-                        <p class="d-flex align-items-center mb-1">
-                            <span class="me-2">Phone</span>
+                            <p>Sei Sikambing C. II, Kec. Medan Helvetia, Kota Medan, Sumatera Utara</p>
 
-                            <a href="tel: 305-240-9671" class="site-footer-link">
-                                305-240-9671
-                            </a>
-                        </p>
+                            <hr>
 
-                        <p class="d-flex align-items-center">
-                            <span class="me-2">Email</span>
+                            <p class="d-flex align-items-center mb-1">
+                                <span class="me-2">Phone</span>
 
-                            <a href="mailto:info@company.com" class="site-footer-link">
-                                info@company.com
-                            </a>
-                        </p>
-                    </div>
+                                <a href="https://wa.me/085173301768?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20Star%20One%20Education%20Center" class="site-footer-link">
+                                    0851-7330-1768
+                                </a>
+                            </p>
 
-                    <div class="col-lg-3 col-md-6 col-12 mx-auto">
-                        <h4 class="mb-3">Dubai office</h4>
+                            <p class="d-flex align-items-center">
+                                <span class="me-2">Email</span>
 
-                        <p>Burj Park, Downtown Dubai, United Arab Emirates</p>
-
-                        <hr>
-
-                        <p class="d-flex align-items-center mb-1">
-                            <span class="me-2">Phone</span>
-
-                            <a href="tel: 110-220-3400" class="site-footer-link">
-                                110-220-3400
-                            </a>
-                        </p>
-
-                        <p class="d-flex align-items-center">
-                            <span class="me-2">Email</span>
-
-                            <a href="mailto:info@company.com" class="site-footer-link">
-                                info@company.com
-                            </a>
-                        </p>
+                                <a href="mailto:info@company.com" class="site-footer-link">
+                                    info@staroneeducation.com
+                                </a>
+                            </p>
+                        </div>
                     </div>
 
                 </div>
@@ -750,8 +860,7 @@
 
                 <div class="col-lg-3 col-12 mb-4 pb-2">
                     <a class="navbar-brand mb-2" href="index.html">
-                        <i class="bi-back"></i>
-                        <span>Topic</span>
+                        <img src="{{ asset('own_assets/images/logo.png') }}" alt="" style="width: 100px">
                     </a>
                 </div>
 
@@ -760,19 +869,31 @@
 
                     <ul class="site-footer-links">
                         <li class="site-footer-link-item">
-                            <a href="#" class="site-footer-link">Home</a>
+                            <a href="#section_1" class="site-footer-link">Home</a>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#" class="site-footer-link">How it works</a>
+                            <a href="#section_2" class="site-footer-link">About Us</a>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#" class="site-footer-link">FAQs</a>
+                            <a href="#section_3" class="site-footer-link">Our Course</a>
                         </li>
 
                         <li class="site-footer-link-item">
-                            <a href="#" class="site-footer-link">Contact</a>
+                            <a href="#section_4" class="site-footer-link">Our Event</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#section_5" class="site-footer-link">Promo</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#section_6" class="site-footer-link">FAQs</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#section_7" class="site-footer-link">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -781,36 +902,27 @@
                     <h6 class="site-footer-title mb-3">Information</h6>
 
                     <p class="text-white d-flex mb-1">
-                        <a href="tel: 305-240-9671" class="site-footer-link">
-                            305-240-9671
+                        <a href="https://wa.me/081263783942?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20Star%20One%20Education%20Center" class="site-footer-link">
+                            0812-6378-3942
+                        </a>
+                    </p>
+
+                    <p class="text-white d-flex mb-1">
+                        <a href="https://wa.me/085173301768?text=Halo%20admin,%20saya%20ingin%20konsultasi%20tentang%20Star%20One%20Education%20Center" class="site-footer-link">
+                            0851-7330-1768
                         </a>
                     </p>
 
                     <p class="text-white d-flex">
-                        <a href="mailto:info@company.com" class="site-footer-link">
-                            info@company.com
+                        <a href="mailto:info@staroneeducation.com" class="site-footer-link">
+                            info@staroneeducation.com
                         </a>
                     </p>
                 </div>
 
                 <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            English</button>
 
-                        <ul class="dropdown-menu">
-                            <li><button class="dropdown-item" type="button">Thai</button></li>
-
-                            <li><button class="dropdown-item" type="button">Myanmar</button></li>
-
-                            <li><button class="dropdown-item" type="button">Arabic</button></li>
-                        </ul>
-                    </div>
-
-                    <p class="copyright-text mt-lg-5 mt-4">Copyright © 2048 Topic Listing Center. All rights reserved.
-                        <br><br>Design: <a rel="nofollow" href="https://templatemo.com"
-                            target="_blank">TemplateMo</a>
+                    <p class="copyright-text mt-lg-5 mt-4">Copyright © 2025 Star One Education Center. All rights reserved.
                     </p>
 
                 </div>
@@ -819,11 +931,42 @@
         </div>
     </footer>
 
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark border-0">
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9">
+                        <video id="popupVideo" controls muted style="width: 100%; height: 100%;">
+                            <source src="{{ asset('own_assets/videos/first_event.mp4') }}" type="video/mp4">
+                            Browser tidak mendukung video.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="{{ asset('landing_assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('landing_assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('landing_assets/js/jquery.sticky.js') }}"></script>
     <script src="{{ asset('landing_assets/js/click-scroll.js') }}"></script>
     <script src="{{ asset('landing_assets/js/custom.js') }}"></script>
+
+    <script>
+        var videoModal = document.getElementById('videoModal');
+        var popupVideo = document.getElementById('popupVideo');
+
+        // Trigger video play saat modal dibuka
+        videoModal.addEventListener('shown.bs.modal', function() {
+            popupVideo.play();
+        });
+
+        // Pause video saat modal ditutup
+        videoModal.addEventListener('hidden.bs.modal', function() {
+            popupVideo.pause();
+            popupVideo.currentTime = 0; // reset ke awal
+        });
+    </script>
 
 </body>
 
