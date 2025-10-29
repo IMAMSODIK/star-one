@@ -45,6 +45,7 @@
                             <use href="{{ asset('dashboard_assets/assets/svg/icon-sprite.svg#fill-home') }}"></use>
                         </svg><span class="lan-3">Dashboard </span></a>
                 </li>
+
                 <li class="sidebar-main-title">
                     <div>
                         <h6 class="">Data</h6>
@@ -63,6 +64,38 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="sidebar-main-title">
+                    <div>
+                        <h6 class="">Events</h6>
+                    </div>
+                </li>
+
+                <li class="sidebar-list"><i class="fa fa-thumb-tack"> </i><a class="sidebar-link sidebar-title"
+                        href="#">
+                        <svg class="stroke-icon">
+                            <use href="{{ asset('dashboard_assets/assets/svg/icon-sprite.svg#stroke-calendar') }}">
+                            </use>
+                        </svg>
+                        <svg class="fill-icon">
+                            <use href="{{ asset('dashboard_assets/assets/svg/icon-sprite.svg#fill-calendar') }}"></use>
+                        </svg>
+                        </svg><span class="">Event </span></a>
+                </li>
+
+                <li class="sidebar-list" style="cursor: pointer">
+                    <a class="sidebar-link sidebar-title">
+                        <i class="fa fa-file-alt text-white"></i>
+                        <span class="">CAT</span>
+                        <div class="according-menu"><i class="fa fa-angle-right"></i></div>
+                    </a>
+                    <ul class="sidebar-submenu" style="display: none;">
+                        <li><a href="#"><i class="fa fa-file-alt me-2"></i> IELTS</a></li>
+                        <li><a href="#"><i class="fa fa-file-alt me-2"></i> TOEFL</a>
+                        </li>
+                    </ul>
+                </li>
+
 
             </ul>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

@@ -11,6 +11,11 @@ use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
+    public function register()
+    {
+        return view('auth.register');
+    }
+
     public function login()
     {
         return view('auth.login');
@@ -59,7 +64,7 @@ class AuthController extends Controller
         ], 401);
     }
 
-    public function register(Request $request)
+    public function registerProses(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',

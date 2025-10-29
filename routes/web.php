@@ -12,28 +12,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/sertifikat', function(){
+    return view('sertifikat');
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
 
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-});
-
-Route::middleware(['guest'])->group(function () {
-    Route::get('/register', [AuthController::class, 'login'])->name('login');
-    Route::post('/register', [AuthController::class, 'loginCheck']);
-
-    Route::post('/register', [AuthController::class, 'register']);
-    Route::post('/register/verify-otp', [AuthController::class, 'verifyOtp']);
-
-    Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotForm'])->name('password.request');
-    Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('password.email');
-
-    Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
-    Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.update');
-});
-
-Route::middleware(['auth'])->group(function () {
     Route::get('/students', [StudentController::class, 'index']);
     Route::post('/students/store', [StudentController::class, 'store']);
     Route::get('/students/detail', [StudentController::class, 'detail']);
@@ -43,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/students/activate', [StudentController::class, 'activate']);
     Route::get('/students/search', [StudentController::class, 'search']);
     Route::get('/students/load-more', [StudentController::class, 'loadMore']);
+    Route::get('/students/certificate', [StudentController::class, 'certificate']);
 
     Route::get('/students-verification', [StudentVerificationController::class, 'index']);
     Route::get('/students-verification/detail', [StudentVerificationController::class, 'detail']);
@@ -52,4 +38,20 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/students-verification/load-more', [StudentVerificationController::class, 'loadMore']);
 
     Route::get('/profile', [ProfileController::class, 'index']);
+
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('/register', [AuthController::class, 'register']);
+    Route::post('/register', [AuthController::class, 'registerProses']);
+
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'loginCheck']);
+
+    Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotForm'])->name('password.request');
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('password.email');
+
+    Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
+    Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.update');
 });

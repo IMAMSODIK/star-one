@@ -7,6 +7,7 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class StudentController extends Controller
 {
@@ -35,7 +36,8 @@ class StudentController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'nama'  => 'required|string|max:255',
-                'email' => 'required|email|max:255|unique:users,email',
+                'wa' => 'required|string|max:15',
+                'kursus' => 'required|string|max:255',
                 'foto'  => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10240'
             ]);
 
@@ -54,16 +56,19 @@ class StudentController extends Controller
 
             $data = User::create([
                 'name'     => $request->nama,
-                'email'    => $request->email,
+                'wa'    => $request->wa,
+                'kursus'    => $request->kursus,
+                'email'    => Str::uuid() . '@starone.com',
                 'password' => bcrypt($request->email),
                 'foto'  => $path,
+                'verification_status' => 1,
                 'role'     => 'student'
             ]);
 
             return response()->json([
                 'status'  => true,
                 'message' => 'Student information saved successfully.',
-                'data'    => User::where('id', $data->id)->select('id', 'name', 'email', 'status', 'foto')->first()
+                'data'    => User::where('id', $data->id)->select('id', 'name', 'wa', 'status', 'foto')->first()
             ], 200);
         } catch (\Exception $e) {
             return response()->json([
@@ -117,7 +122,8 @@ class StudentController extends Controller
         $validator = Validator::make($r->all(), [
             'id'    => 'required|exists:users,id',
             'nama'  => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $r->id,
+            'wa' => 'required|string|max:15',
+            'kursus' => 'required|string|max:255',
             'foto'  => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:10000'
         ]);
 
@@ -133,7 +139,8 @@ class StudentController extends Controller
             $user = User::findOrFail($r->id);
 
             $user->name  = $r->nama;
-            $user->email = $r->email;
+            $user->wa = $r->wa;
+            $user->kursus = $r->kursus;
 
             if ($r->hasFile('foto')) {
                 $path = $r->file('foto')->store('foto_profile', 'public');
@@ -298,5 +305,11 @@ class StudentController extends Controller
             'status' => true,
             'data'   => $users
         ]);
+    }
+
+    public function certificate(Request $r){
+        $user = User::where('id', $r->id)->first();
+
+        return view('sertifikat', ["data" => $user]);
     }
 }

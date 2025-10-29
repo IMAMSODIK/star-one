@@ -51,7 +51,6 @@
 </head>
 
 <body>
-
     <!-- Floating particles background -->
     <div class="particles" id="particles"></div>
 
@@ -75,35 +74,52 @@
                 <img src="{{ asset('own_assets/logo/logo.png') }}" alt="" width="20%">
             </h2>
             <div class="tabs">
-                <div class="tab active" onclick="switchTab('login')">Welcome Back!</div>
+                <div class="tab active" onclick="switchTab('register')">Register</div>
             </div>
 
-            <!-- Form Login -->
-            <div id="login-form" class="form active">
-                <h2 class="title">Masukkan password dan username anda</h2>
+            <!-- Form Register -->
+            <div id="register-form" class="form active">
+                <h2 class="title">Start Your Bright Journey</h2>
 
-                <div class="alert alert-danger d-none" id="login-error">
+                <!-- Error message container -->
+                <div class="alert alert-danger d-none" id="register-error">
                     <i class="fas fa-exclamation-circle me-2"></i>
-                    <span id="login-error-message"></span>
+                    <span id="register-error-message"></span>
+                    <ul id="register-error-list" class="mb-0 ps-3"></ul>
+                </div>
+
+                <!-- Success message will be inserted here dynamically -->
+
+                <div class="input-group">
+                    <label for="register-name"><i class="fas fa-user me-2"></i> Nama Lengkap</label>
+                    <input type="text" id="register-name" placeholder="Nama lengkap kamu">
                 </div>
 
                 <div class="input-group">
-                    <label for="login-email"><i class="fas fa-user" style="margin-right: 5px;"></i>
-                        Email</label>
-                    <input type="email" id="login-email" placeholder="Enter your email">
+                    <label for="register-wa"><i class="fas fa-user me-2"></i> No. Whatsapp</label>
+                    <input type="text" id="register-wa" placeholder="No. Whatsapp kamu">
                 </div>
 
                 <div class="input-group">
-                    <label for="login-password"><i class="fas fa-lock" style="margin-right: 5px;"></i> Password</label>
-                    <input type="password" id="login-password" placeholder="Enter your password">
+                    <label for="register-kursus"><i class="fas fa-user me-2"></i> Pilih Kursus </label>
+                    <select name="" id="register-kursus">
+                        <option value="English Regular">English Regular</option>
+                        <option value="Conversation Class">Conversation Class</option>
+                        <option value="TOEFL Preparation">TOEFL Preparation</option>
+                        <option value="IELTS Preparation">IELTS Preparation</option>
+                        <option value="Legal English">Legal English</option>
+                        <option value="Mandarin Class">Mandarin Class</option>
+                        <option value="Microsoft Office">Microsoft Office</option>
+                        <option value="Fundamental Programming">Fundamental Programming</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Mobile Development">Mobile Development</option>
+                        <option value="Design Grafis">Design Grafis</option>
+                    </select>
                 </div>
 
-                <div class="forgot-password">
-                    <a href="{{ route('password.request') }}"><i class="fas fa-key" style="margin-right: 3px;"></i> Forgot password?</a>
-                </div>
-
-                <button class="btn text-white" type="button" id="login-submit"><i class="fas fa-sign-in-alt"
-                        style="margin-right: 8px;"></i> Sign In</button>
+                <button class="btn btn-primary mt-3" id="register">
+                    <i class="fas fa-user-plus me-2"></i> Join Now
+                </button>
             </div>
         </div>
     </div>
@@ -216,6 +232,55 @@
                             showLoginError(response.message || 'Invalid credentials');
                         } else {
                             showLoginError('An error occurred. Please try again.');
+                        }
+                    }
+                });
+            });
+
+            $('#register-form button.btn').click(function(e) {
+                $("#register").prop('disabled', true);
+                $('body').css('cursor', 'wait');
+
+                e.preventDefault();
+                hideRegisterError();
+
+                const name = $('#register-name').val();
+                const wa = $('#register-wa').val();
+                const kursus = $('#register-kursus').val();
+
+                $.ajax({
+                    url: '/register',
+                    type: 'POST',
+                    data: {
+                        name: name,
+                        wa: wa,
+                        kursus: kursus,
+                        _token: $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        $("#register").prop('disabled', false);
+                        $('body').css('cursor', 'default');
+                        if (response.status === 'success') {
+                            showRegisterSuccess(response.message);
+                            $('#register-name').val("")
+                            $('#register-wa').val("")
+                            $('#register-kursus').prop('selectedIndex', 0);
+                        } else {
+                            showRegisterError(response.message);
+                        }
+                    },
+                    error: function(xhr) {
+                        $("#register").prop('disabled', false);
+                        $('body').css('cursor', 'default');
+                        const response = xhr.responseJSON;
+                        if (xhr.status === 422) {
+                            showRegisterError(
+                                'Please fix the following errors:',
+                                response.errors
+                            );
+                        } else {
+                            showRegisterError('An error occurred. Please try again.'
+                            );
                         }
                     }
                 });

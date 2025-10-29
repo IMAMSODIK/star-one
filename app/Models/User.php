@@ -26,7 +26,9 @@ class User extends Authenticatable
         'foto',
         'status',
         'wa',
-        'kursus'
+        'kursus',
+        'bukti_bayar',
+        'verification_status'
     ];
 
     /**

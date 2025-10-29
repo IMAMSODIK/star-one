@@ -52,9 +52,20 @@ $(document).on("click", ".detail-user", function () {
             if (response.status) {
                 $("#id").val(response.data.id);
                 $("#edit_nama").val(response.data.name);
-                $("#edit_email").val(response.data.email);
+                $("#edit_kursus").val(response.data.kursus);
+                $("#edit_wa").val(response.data.wa);
                 let foto = (response.data.foto) ? `../../storage/${response.data.foto}` : '/own_assets/images/avatar.png';
                 $("#preview-edit_foto").attr("src", foto).removeClass("d-none");
+
+                if (response.data && response.data.bukti_bayar) {
+                    let bb = `../../storage/bukti_bayar/${response.data.bukti_bayar}`;
+                    $(".bukti-bayar").show();
+                    $("#bukti_bayar").attr("src", bb);
+                } else {
+                    $(".bukti-bayar").hide();
+                    $("#bukti_bayar").attr("src", "");
+                }
+
 
                 if (response.data.status == 1) {
                     $("#delete").show();
@@ -166,7 +177,8 @@ $("#store").on("click", function () {
     }
     formData.append("_token", $("meta[name='csrf-token']").attr("content"));
     formData.append("nama", $("#nama").val());
-    formData.append("email", $("#email").val());
+    formData.append("wa", $("#wa").val());
+    formData.append("kursus", $("#kursus").val());
 
     $.ajax({
         url: "/students/store",
@@ -183,7 +195,7 @@ $("#store").on("click", function () {
             if (response.status) {
                 alertModal(true, response.message);
                 $("#nama").val("");
-                $("#email").val("");
+                $("#wa").val("");
                 $("#foto").val("");
                 $("#preview-foto").attr("src", "#").addClass("d-none");
 
@@ -198,9 +210,9 @@ $("#store").on("click", function () {
                                     <div class="ribbon ribbon-${(response.data.status) ? 'success' : 'danger'}">${(response.data.status) ? 'Active' : 'Nonactive'}</div>
                                 </div>
                                 <div class="product-details">
-                                    <span class="badge rounded-pill badge-primary text-white mb-2">Student</span>
+                                    <span class="badge rounded-pill badge-primary text-white mb-2">${response.data.kursus}</span>
                                     <h5>${response.data.name}</h5>
-                                    <p>${response.data.email}</p>
+                                    <p><i class="fab fa-whatsapp text-success"></i> ${response.data.wa}</p>
                                 </div>
                             </div>
                         </div>
@@ -263,7 +275,8 @@ $("#update").on("click", function () {
     formData.append("_token", $("meta[name='csrf-token']").attr("content"));
     formData.append("id", $("#id").val());
     formData.append("nama", $("#edit_nama").val());
-    formData.append("email", $("#edit_email").val());
+    formData.append("wa", $("#edit_wa").val());
+    formData.append("kursus", $("#edit_kursus").val());
 
     $.ajax({
         url: "/students/update",
@@ -280,7 +293,8 @@ $("#update").on("click", function () {
             if (response.status) {
                 alertModal(true, response.message);
                 $("#edit_nama").val("");
-                $("#edit_email").val("");
+                $("#edit_wa").val("");
+                $("#edit_kursus").val("");
                 $("#edit_foto").val("");
                 $("#preview-edit_foto").attr("src", "#").addClass("d-none");
 
@@ -288,7 +302,8 @@ $("#update").on("click", function () {
 
                 userDetail.find("img.img-fluid").attr("src", foto);
                 userDetail.find("h5").text(response.data.name);
-                userDetail.find("p").text(response.data.email);
+                userDetail.find("p").text(response.data.wa);
+                userDetail.find("span.kursus").text(response.data.kursus);
 
                 $("#is-error").removeClass('error-response');
             } else {
@@ -332,74 +347,9 @@ $("#update").on("click", function () {
 })
 
 $("#reset").on("click", function () {
-    let formData = new FormData();
-    let button = $(this);
-
-    $('body').css('cursor', 'wait');
-    $(button).prop('disabled', true);
-
-    let file = $("#edit_foto")[0].files[0];
-    if (file) {
-        formData.append("foto", file);
-    }
-    formData.append("_token", $("meta[name='csrf-token']").attr("content"));
-    formData.append("id", $("#id").val());
-
-    $.ajax({
-        url: "/students/reset-password",
-        method: "POST",
-        processData: false,
-        contentType: false,
-        data: formData,
-        success: function (response) {
-            $(`#${modal}`).modal("hide");
-
-            $('body').css('cursor', 'default');
-            $(button).prop('disabled', false);
-
-            if (response.status) {
-                alertModal(true, response.message);
-
-                $("#is-error").removeClass('error-response');
-            } else {
-                let message = `<div style="text-align: center; font-weight: bold; margin-bottom: 10px;">${response.message || "An error occurred."}</div>`;
-
-                if (response.errors) {
-                    const detailMessages = Object.values(response.errors)
-                        .map(msgs => msgs[0])
-                        .join("<br>");
-                    message += `<div style="text-align: center;">${detailMessages}</div>`;
-                }
-
-                $("#is-error").addClass('error-response');
-                alertModal(false, message);
-            }
-
-        },
-        error: function (xhr) {
-            $(`#${modal}`).modal("hide");
-            $('body').css('cursor', 'default');
-            $(button).prop('disabled', false);
-
-            let message = `<div style="text-align: center; font-weight: bold; margin-bottom: 10px;">An error occurred.</div>`;
-
-            if (xhr.responseJSON) {
-                if (xhr.responseJSON.message) {
-                    message = `<div style="text-align: center; font-weight: bold; margin-bottom: 10px;">${xhr.responseJSON.message}</div>`;
-                }
-                if (xhr.responseJSON.errors) {
-                    const detailMessages = Object.values(xhr.responseJSON.errors)
-                        .map(msgs => msgs[0])
-                        .join("<br>");
-                    message += `<div style="text-align: center;">${detailMessages}</div>`;
-                }
-            }
-
-            $("#is-error").addClass('error-response');
-            alertModal(false, message);
-        }
-    });
-})
+    let id = $("#id").val();
+    window.open(`/students/certificate?id=${id}`, '_blank');
+});
 
 $("#delete").on("click", function () {
     let formData = new FormData();
@@ -656,7 +606,7 @@ $("#load-more").on("click", function() {
                                         ${statusRibbon}
                                     </div>
                                     <div class="product-details">
-                                        <span class="badge rounded-pill badge-primary text-white mb-2">Student</span>
+                                        <span class="badge rounded-pill badge-primary text-white mb-2">${user.kursus}</span>
                                         <h5>${user.name}</h5>
                                         <p>${user.email}</p>
                                     </div>

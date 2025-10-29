@@ -52,7 +52,7 @@ $(document).on("click", ".detail-user", function () {
             if (response.status) {
                 $("#id").val(response.data.id);
                 $("#edit_nama").val(response.data.name);
-                $("#edit_email").val(response.data.email);
+                $("#edit_email").val(response.data.wa);
                 let foto = (response.data.foto) ? `../../storage/${response.data.foto}` : '/own_assets/images/avatar.png';
                 $("#preview-edit_foto").attr("src", foto).removeClass("d-none");
 
@@ -192,6 +192,7 @@ $("#activate").on("click", function () {
 
     formData.append("_token", $("meta[name='csrf-token']").attr("content"));
     formData.append("id", $("#id").val());
+    formData.append("bukti_bayar", $("#bukti_bayar")[0].files[0]);
 
     $.ajax({
         url: "/students-verification/activate",

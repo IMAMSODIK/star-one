@@ -118,6 +118,23 @@ class StudentVerificationController extends Controller
             $user = User::findOrFail($r->id);
             $user->status = 1;
             $user->verification_status = 1;
+
+            if ($r->hasFile('bukti_bayar')) {
+                $file = $r->file('bukti_bayar');
+                $fileMimeType = $file->getClientMimeType();
+
+                if ($fileMimeType != 'image/png' && $fileMimeType != 'image/jpg' && $fileMimeType != 'image/jpeg') {
+                    return response()->json([
+                        'status' => false,
+                        'message' => "Jenis File Tidak Didukung"
+                    ]);
+                }
+
+                $bukti_bayar = bin2hex(random_bytes(10)) . '.' . $file->getClientOriginalExtension();
+                $user->bukti_bayar = $bukti_bayar;
+                $file->storePubliclyAs('bukti_bayar', $bukti_bayar, 'public');
+            }
+
             $user->save();
 
             return response()->json([

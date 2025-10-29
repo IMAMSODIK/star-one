@@ -92,9 +92,9 @@
                                             @endif
                                         </div>
                                         <div class="product-details">
-                                            <span class="badge rounded-pill badge-primary text-white mb-2">Student</span>
+                                            <span class="badge rounded-pill badge-primary text-white mb-2 kursus">{{ $d->kursus }}</span>
                                             <h5>{{ $d->name }}</h5>
-                                            <p>{{ $d->email }}</p>
+                                            <p><i class="fab fa-whatsapp text-success"></i> {{ $d->wa }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -150,9 +150,29 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="mb-3">
-                                            <label class="form-label" for="email">Enter Student Email</label>
-                                            <input type="text" class="form-control input-air-primary" id="email"
+                                            <label class="form-label" for="wa">Enter Student Whatsapp Number</label>
+                                            <input type="text" class="form-control input-air-primary" id="wa"
                                                 placeholder="Enter Student Name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="kursus">Select Student Course</label>
+                                            <select class="form-control input-air-primary" id="kursus">
+                                                <option value="English Regular">English Regular</option>
+                                                <option value="Conversation Class">Conversation Class</option>
+                                                <option value="TOEFL Preparation">TOEFL Preparation</option>
+                                                <option value="IELTS Preparation">IELTS Preparation</option>
+                                                <option value="Legal English">Legal English</option>
+                                                <option value="Mandarin Class">Mandarin Class</option>
+                                                <option value="Microsoft Office">Microsoft Office</option>
+                                                <option value="Fundamental Programming">Fundamental Programming</option>
+                                                <option value="Web Development">Web Development</option>
+                                                <option value="Mobile Development">Mobile Development</option>
+                                                <option value="Design Grafis">Design Grafis</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -206,9 +226,37 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="mb-3">
-                                            <label class="form-label" for="edit_email">Enter Student Email</label>
-                                            <input type="text" class="form-control input-air-primary" id="edit_email"
-                                                placeholder="Enter Student Name">
+                                            <label class="form-label" for="edit_wa">Enter Student Whatsapp Number</label>
+                                            <input type="text" class="form-control input-air-primary" id="edit_wa"
+                                                placeholder="Enter Student Whatsapp Number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="edit_kursus">Select Student Course</label>
+                                            <select class="form-control input-air-primary" id="edit_kursus">
+                                                <option value="English Regular">English Regular</option>
+                                                <option value="Conversation Class">Conversation Class</option>
+                                                <option value="TOEFL Preparation">TOEFL Preparation</option>
+                                                <option value="IELTS Preparation">IELTS Preparation</option>
+                                                <option value="Legal English">Legal English</option>
+                                                <option value="Mandarin Class">Mandarin Class</option>
+                                                <option value="Microsoft Office">Microsoft Office</option>
+                                                <option value="Fundamental Programming">Fundamental Programming</option>
+                                                <option value="Web Development">Web Development</option>
+                                                <option value="Mobile Development">Mobile Development</option>
+                                                <option value="Design Grafis">Design Grafis</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row bukti-bayar" style="display: none">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="bukti_bayar">Bukti Pembayaran</label>
+                                            <img src="" id="bukti_bayar" width="100%" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -217,7 +265,7 @@
                                 <div class="d-flex flex-wrap gap-1 justify-content-end">
                                     <input class="btn btn-light flex-fill flex-md-grow-0" type="button" id="cancel-edit" value="Cancel">
                                     <button class="btn btn-primary flex-fill flex-md-grow-0" type="button" id="update">Update</button>
-                                    <button class="btn btn-warning flex-fill flex-md-grow-0" type="button" id="reset">Reset Pasword</button>
+                                    <button class="btn btn-warning flex-fill flex-md-grow-0" type="button" id="reset">Certificate</button>
                                     <button class="btn btn-danger flex-fill flex-md-grow-0" type="button" id="delete">Deactivate</button>
                                     <button class="btn btn-info flex-fill flex-md-grow-0" type="button" id="activate">Activate</button>
                                 </div>

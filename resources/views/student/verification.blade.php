@@ -90,7 +90,7 @@
                                         <div class="product-details">
                                             <span class="badge rounded-pill badge-primary text-white mb-2">Student</span>
                                             <h5>{{ $d->name }}</h5>
-                                            <p>{{ $d->email }}</p>
+                                            <p><i class="fab fa-whatsapp text-success"></i> {{ $d->wa }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -200,9 +200,17 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="mb-3">
-                                            <label class="form-label" for="edit_email">Student Email</label>
+                                            <label class="form-label" for="edit_email">Student Whatsapp Number</label>
                                             <input type="text" class="form-control input-air-primary" id="edit_email"
                                                 placeholder="Student Name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="bukti_bayar">Bukti Pembayaran</label>
+                                            <input type="file" class="form-control input-air-primary" id="bukti_bayar">
                                         </div>
                                     </div>
                                 </div>
